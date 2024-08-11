@@ -6,6 +6,7 @@ int main()
     printf("여기수정~~~~~~~₩");
     printf("여기도 수정");
     printf("수정");
-    
+    printf("gg");
+
     return 0;
 }
