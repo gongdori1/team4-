@@ -1,11 +1,18 @@
-const mongoose = require("mongoose");
-const asynchandler = require("express-async-handler");
-require("dotenv").config(); // .env 파일을 사용하기 위해
+// MongoDB 연결 설정
 
-const connectDb = asynchandler(async () => {
-  // .env 파일에 있는 MONGODB_URI값을 사용해 접속
-  const connect = await mongoose.connect(process.env.MONGODB_URI);
-  console.log(`DB connected: ${connect.connection.host}`); // DB 연결 성공 시 터미널에 출력
-});
+const mongoose = require('mongoose');
+const config = require('config');
+const dbURI = config.get('dbURI');
 
-module.exports = connectDb;
+const connectDB = async () => {
+    try {
+        await mongoose.connect(dbURI);
+        console.log('MongoDB Connected...');
+    } catch (err) {
+        console.error(err.message);
+        process.exit(1); // 실패 시 프로세스 종료
+    }
+};
+
+module.exports = connectDB;
+

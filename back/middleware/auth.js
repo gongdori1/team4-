@@ -23,7 +23,7 @@ module.exports = function (req, res, next) {
 
     try {
         // 토큰 검증
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, config.get('jwtSecret'));
 
         // 토큰에서 추출한 사용자 ID를 요청 객체에 추가
         req.user = decoded.user;

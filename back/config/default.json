@@ -1,0 +1,6 @@
+{
+  "port": 3000,
+  "dbURI": "mongodb+srv://kevin8565:kevin0126@cluster0.8z9tozl.mongodb.net/ssu_petition", 
+  "jwtSecret": "kevin6523", 
+  "logLevel": "debug"
+}
