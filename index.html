@@ -3,48 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>하트 그리기 예제</title>
-<style>
-  .heart {
-    width: 50px;
-    height: 50px;
-    position: relative;
-    margin: 10px;
-    display: inline-block;
-    transform: rotate(-45deg);
-    background-color: red;
-  }
-  .heart::before,
-  .heart::after {
-    content: '';
-    width: 50px;
-    height: 80px;
-    background-color: red;
-    position: absolute;
-    border-radius: 50px 50px 0 0;
-  }
-  .heart::before {
-    top: -50px;
-    left: 0;
-  }
-  .heart::after {
-    bottom: -50px;
-    right: 0;
-    transform: rotate(180deg);
-  }
-</style>
-<script>
-  function drawHeart() {
-    // Create a heart element
-    var heart = document.createElement("div");
-    heart.className = "heart";
-
-    // Add the heart to the page
-    document.body.appendChild(heart);
-  }
-</script>
-</head>
-<body>
-  <button onclick="drawHeart()">하트 그리기</button>
-</body>
-</html>
+<title>청원 로그인 페이지</title>
+<form>
+  <h1>숭실대학교 학생청원</h1>
+  <p>유세인트 아이디와 비밀번호로 이용 가능</p>
+  <p>개인정보는 저장되지 않습니다</p>
+  <fieldset>
+    <label>아이디: <input type="text" id="user _id" size="10"></label>
+    <label>비밀번호: <input type="password" id="user _pw" size="10"></label>
+    <input type="submit" value="로그인"> 
+  </fieldset>
+</form>
