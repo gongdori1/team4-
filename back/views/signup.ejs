@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>회원가입</title>
+<style>
+    table {
+        width: 280px;
+        height: auto;
+        margin: auto;
+        border-collapse: collapse;
+    }
+    td {
+        padding: 10px;
+    }
+    .email {
+        width: 127px;
+        height: 32px;
+        font-size: 15px;
+        border: 1px solid lightgray;
+        border-radius: 15px;
+        outline: none;
+        padding-left: 10px;
+        background-color: rgb(233, 233, 233);
+    }
+    .text {
+        width: 250px;
+        height: 32px;
+        font-size: 15px;
+        border: 1px solid lightgray;
+        border-radius: 15px;
+        outline: none;
+        padding-left: 10px;
+        background-color: rgb(233, 233, 233);
+    }
+    select {
+        width: 100px;
+        height: 32px;
+        font-size: 15px;
+        border: 1px solid lightgray;
+        border-radius: 15px;
+        outline: none;
+        padding-left: 10px;
+    }
+    .btn {
+        width: 262px;
+        height: 32px;
+        font-size: 15px;
+        border: 0;
+        border-radius: 15px;
+        outline: none;
+        background-color: rgb(164, 199, 255);
+        cursor: pointer;
+    }
+    .btn:active {
+        background-color: rgb(61, 135, 255);
+    }
+</style>
+</head>
+<body>
+<form action="/signup" method="POST"> <!-- 폼 액션을 /signup으로 설정 -->
+    <table>
+        <tr>
+            <td colspan="2"><h2>회원가입</h2></td>
+        </tr>
+        <tr><td>아이디</td></tr> <!-- 아이디 입력란 추가 -->
+        <tr><td><input type="text" name="username" class="text" value="<%= (user && user.username) || '' %>"></td></tr>
+        <tr><td>이메일</td></tr>
+        <tr>
+            <td>
+                <input type="text" name="emailLocal" class="email" value="<%= (user && user.email && user.email.split('@')[0]) || '' %>"> @
+                <select name="emailDomain">
+                    <option value="naver.com" <%= (user && user.email && user.email.endsWith('naver.com')) ? 'selected' : '' %>>naver.com</option>
+                    <option value="gmail.com" <%= (user && user.email && user.email.endsWith('gmail.com')) ? 'selected' : '' %>>gmail.com</option>
+                    <option value="daum.net" <%= (user && user.email && user.email.endsWith('daum.net')) ? 'selected' : '' %>>daum.net</option>
+                    <option value="nate.com" <%= (user && user.email && user.email.endsWith('nate.com')) ? 'selected' : '' %>>nate.com</option>
+                </select>
+            </td>
+        </tr>
+        <tr><td>비밀번호</td></tr>
+        <tr><td><input type="password" name="password" class="text"></td></tr>
+        <tr><td>비밀번호 확인</td></tr>
+        <tr><td><input type="password" name="passwordConfirm" class="text"></td></tr>
+        <tr><td>이름</td></tr>
+        <tr><td><input type="text" name="name" class="text" value="<%= (user && user.name) || '' %>"></td></tr>
+        <tr><td>생년월일</td></tr>
+        <tr><td><input type="date" name="birthdate" class="text" value="<%= (user && user.birthdate) || '' %>"></td></tr>
+        <tr><td colspan="2">
+            <input type="hidden" name="email" id="email"> <!-- 숨김 필드 추가 -->
+            <input type="submit" value="가입하기" class="btn">
+        </td></tr>
+    </table>
+</form>
+<script>
+    // 이메일 로컬과 도메인 결합
+    document.querySelector('form').addEventListener('submit', function() {
+        const emailLocal = document.querySelector('input[name="emailLocal"]').value;
+        const emailDomain = document.querySelector('select[name="emailDomain"]').value;
+        document.querySelector('input[name="email"]').value = emailLocal + '@' + emailDomain;
+    });
+</script>
+</body>
+</html>

@@ -5,6 +5,12 @@ const router = express.Router();
 const petitionController = require('../controllers/petitionController');
 const auth = require('../middleware/auth');
 
+
+// 청원 작성 페이지 렌더링
+router.get('/create', (req, res) => {
+  res.render('petition'); // petition.ejs 파일을 렌더링
+});
+
 // 청원 목록 조회
 router.get('/', petitionController.getAllPetitions);
 

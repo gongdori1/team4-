@@ -1,1 +1,51 @@
-<%# 로그인 페이지 %>
+<!-- <%# 로그인 페이지 %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청원 로그인 페이지</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form action="/auth/login" method="post">
+    <h1>숭실대학교 학생청원</h1>
+    <p>유세인트 아이디와 비밀번호로 이용 가능</p>
+    <p>개인정보는 저장되지 않습니다</p>
+    <fieldset>
+      <label for="user_id">아이디: <input type="text" id="user_id" name="user_id" size="10" required></label>
+      <label for="user_pw">비밀번호: <input type="password" id="user_pw" name="user_pw" size="10" required></label>
+      <input type="submit" value="로그인"> 
+    </fieldset>
+    <a href="/signup" class="join">회원가입</a>
+  </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>청원 로그인 페이지</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <form action="/auth/login" method="post"> <!-- 서버에서 설정한 로그인 경로에 맞춰 수정 -->
+    <h1>숭실대학교 학생청원</h1>
+    <p>개인정보는 저장되지 않습니다</p>
+    <fieldset>
+      <label for="username">아이디: 
+        <input type="text" id="username" name="username" size="10" required> <!-- 'username'으로 수정 -->
+      </label>
+      <label for="password">비밀번호: 
+        <input type="password" id="password" name="password" size="10" required> <!-- 'password'로 수정 -->
+      </label>
+      <input type="submit" value="로그인"> 
+    </fieldset>
+    <a href="/signup" class="join">회원가입</a>
+  </form>
+</body>
+</html>
+
